@@ -211,6 +211,7 @@ public class MainMenuScreen implements Screen{
          		 }
          		 else {
          			 nCaption.setText("You have "+notification.text()+"notifications.");
+         			 app.notification.toast("You have "+notification.text()+"notifications.");
          		 }
          	 }
      	 }

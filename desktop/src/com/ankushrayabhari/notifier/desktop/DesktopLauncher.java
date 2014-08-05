@@ -13,6 +13,6 @@ public class DesktopLauncher {
 		config.height = 550;
 		config.vSyncEnabled = true;
 		config.resizable = false;
-		new LwjglApplication(new Notifier(), config);
+		new LwjglApplication(new Notifier(new DesktopNotification()), config);
 	}
 }

@@ -5,7 +5,6 @@ import org.robovm.apple.uikit.UIApplication;
 
 import com.badlogic.gdx.backends.iosrobovm.IOSApplication;
 import com.badlogic.gdx.backends.iosrobovm.IOSApplicationConfiguration;
-import com.ankushrayabhari.notifier.Notifier;
 
 public class IOSLauncher extends IOSApplication.Delegate {
     @Override
@@ -13,7 +12,7 @@ public class IOSLauncher extends IOSApplication.Delegate {
         IOSApplicationConfiguration config = new IOSApplicationConfiguration();
         config.orientationPortrait = false;
         config.orientationLandscape = true;
-        return new IOSApplication(new Notifier(), config);
+        return new IOSApplication(new Notifier(new IOSNotification()), config);
     }
 
     public static void main(String[] argv) {

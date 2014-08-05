@@ -28,6 +28,11 @@ public class Notifier extends Game {
  	public LabelStyle labelStyle;
  	public TextButtonStyle buttonStyle;
  	public boolean prefsSet;
+ 	public final Notification notification;
+ 	
+ 	public Notifier(Notification notification) {
+ 		this.notification = notification;
+ 	}
  	
  	@Override
 	public void create () {
