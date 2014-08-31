@@ -47,6 +47,7 @@ public class PreferenceScreen implements Screen {
 
     @Override
     public void show() {
+    Gdx.graphics.setContinuousRendering(true);
 	stage = new Stage();
 	table = new Table();
 	table.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());

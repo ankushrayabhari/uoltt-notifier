@@ -196,11 +196,13 @@ public class MainMenuScreen implements Screen{
     	 } catch (IOException e) {
     		 Gdx.app.log("Conn:", "Failed");
     		 nCaption.setText("Cannot Connect to Forum");
+    		 Gdx.graphics.requestRendering();
     		 timer = 0;
     		 return;
     	 }
      	 if(doc.getElementById("ipbwrapper").getElementById("header_bar").getElementById("user_navigation").attr("class").equals("not_logged_in")) {
      	     nCaption.setText("Login failed! Check credentials!");
+     	     Gdx.graphics.requestRendering();
      	 }
      	 else{
          	 if(notification != null) {
@@ -208,10 +210,13 @@ public class MainMenuScreen implements Screen{
          		 Gdx.app.log("PrefsUser", prefs.getUsername());
          		 if(notification.text().equals(Character.toString((char) 160))) {
          			 nCaption.setText("You have no notifications.");
+         			 app.notification.notify("You have no notifications.");
+         			 Gdx.graphics.requestRendering();
          		 }
          		 else {
          			 nCaption.setText("You have "+notification.text()+"notifications.");
-         			 app.notification.toast("You have "+notification.text()+"notifications.");
+         			 app.notification.notify("You have "+notification.text()+"notifications.");
+         			 Gdx.graphics.requestRendering();	
          		 }
          	 }
      	 }

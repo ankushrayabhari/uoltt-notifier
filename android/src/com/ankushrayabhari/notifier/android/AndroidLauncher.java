@@ -1,5 +1,8 @@
 package com.ankushrayabhari.notifier.android;
 
+import android.app.NotificationManager;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -16,19 +19,36 @@ public class AndroidLauncher extends AndroidApplication implements Notification 
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
 		initialize(new Notifier(this), config);
 	}
-
+	
 	@Override
-	   public void toast(String message) {
-	      toastSimple(message, this);
-	   }
+	public void notify(String message) {
+		notification(message);
+	}
+	
+	@Override
+	public void toast(String message, int length) {
+	    toastSimple(message, length, this);
+	}
 
-	   public void toastSimple(final String text, final AndroidLauncher context) {
-	      handler.post(new Runnable() {
-	         @Override
-	         public void run() {
-	            Toast.makeText(getApplicationContext(), text,
-	                  Toast.LENGTH_SHORT).show();
-	         }
-	      });
-	   }
+	public void toastSimple(final String text, final int length, final AndroidLauncher context) {
+	    handler.post(new Runnable() {
+	    	@Override
+	    	public void run() {
+	    		Toast.makeText(getApplicationContext(), text,
+	    		length).show();
+	    	}
+	    
+	    });
+	}
+	
+	public void notification(String message) {
+		android.app.Notification.Builder mBuilder =
+		        new android.app.Notification.Builder(this)
+		        .setSmallIcon(R.drawable.ic_launcher)
+		        .setContentTitle("UOLTT Notifier")
+		        .setContentText(message);
+		NotificationManager mNotificationManager =
+			    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+			mNotificationManager.notify(1, mBuilder.build());
+	}
 }

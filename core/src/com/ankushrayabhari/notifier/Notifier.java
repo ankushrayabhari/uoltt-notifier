@@ -36,6 +36,8 @@ public class Notifier extends Game {
  	
  	@Override
 	public void create () {
+ 		Gdx.graphics.setContinuousRendering(false);
+ 		Gdx.graphics.requestRendering();
 	    font = new BitmapFont(Gdx.files.internal("skin/font.fnt"));
 	    mainMenuScreen = new MainMenuScreen(this);
 	    fScreen = new FacebookScreen(this);

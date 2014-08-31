@@ -1,11 +1,13 @@
 package com.ankushrayabhari.notifier.screens;
 
 import com.ankushrayabhari.notifier.Notifier;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 
 public class YoutubeScreen implements Screen{
-
+	private Notifier app;
     public YoutubeScreen(Notifier notifier) {
+    	this.app = notifier;
     }
 
     @Override
